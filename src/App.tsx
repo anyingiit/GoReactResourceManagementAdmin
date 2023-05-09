@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Admin, EditGuesser, ListGuesser, Resource } from 'react-admin';
+import jsonServerProvider from "ra-data-json-server";
+import { UserList } from './users';
+import { PostCreate, PostEdit, PostList } from './posts';
+import PostIcon from '@mui/icons-material/Book'
+import UserIcon from '@mui/icons-material/Group'
+import { Dashboard } from './Dashboard';
+import { authProvider } from './authProvider';
 
-function App() {
-  const [count, setCount] = useState(0)
+const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+
+const App = () => (
+    <Admin dataProvider={dataProvider} dashboard={Dashboard} authProvider={authProvider}>
+        <Resource name='posts' list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
+        {/* recordRepresentation 当通过ReferenceField组件引用该组件的值时，返回的时键为'name'的值 */}
+        <Resource name='users' list={UserList} recordRepresentation="name" icon={UserIcon} />
+    </Admin>
+)
 
 export default App
