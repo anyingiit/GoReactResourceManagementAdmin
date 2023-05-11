@@ -1,16 +1,35 @@
 // in src/authProvider.ts
+import { fetchUtils, AuthProvider } from "react-admin";
+import { stringify } from "query-string";
+const httpClient = fetchUtils.fetchJson;
 
 // TypeScript users must reference the type: `AuthProvider`
-export const authProvider = {
+export const authProvider: AuthProvider = {
     // called when the user attempts to log in
-    login: ({ username }: { username: string }) => {
-        localStorage.setItem("username", username);
-        // accept all username/password combinations
-        return Promise.resolve();
+    login: ({ username, password }: { username: string, password: string }) => {
+        const url = `http://localhost:8080/v1/public/token`;
+
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('password', password);
+
+        return httpClient(url, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(({ json }) => {
+                console.log(json);
+                localStorage.setItem('token', json.data.token);
+                localStorage.setItem('username', username);
+
+                return Promise.resolve();
+            });
     },
     // called when the user clicks on the logout button
     logout: () => {
         localStorage.removeItem("username");
+        localStorage.removeItem("token");
+
         return Promise.resolve();
     },
     // called when the API returns an error
@@ -23,7 +42,7 @@ export const authProvider = {
     },
     // called when the user navigates to a new location, to check for authentication
     checkAuth: () => {
-        return localStorage.getItem("username")
+        return localStorage.getItem("token")
             ? Promise.resolve()
             : Promise.reject();
     },
