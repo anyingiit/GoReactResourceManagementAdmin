@@ -1,0 +1,43 @@
+import {
+    Datagrid,
+    List,
+    TextField, Edit,
+    SimpleForm,
+    TextInput,
+    Create,
+    SimpleList,
+    ReferenceField,
+    ReferenceInput,
+} from 'react-admin';
+import { useMediaQuery, Theme } from '@mui/material';
+
+export const ClienSessiontList = () => {
+    return (
+        <List>
+            <Datagrid rowClick="edit">
+                <TextField source="id" />
+                <ReferenceField source="client_id" reference="clients" />
+                <TextField source='uuid' />
+            </Datagrid>
+        </List>
+    );
+}
+
+export const ClienSessionEdit = () => (
+    <Edit>
+        <SimpleForm>
+            <TextInput source="id" disabled />
+            <ReferenceInput source="client_id" reference="clients" />
+            <TextInput source='uuid' />
+        </SimpleForm>
+    </Edit>
+);
+
+export const ClienSessionCreate = () => (
+    <Create>
+        <SimpleForm>
+            <ReferenceInput source="client_id" reference="clients" />
+            <TextInput source='uuid' />
+        </SimpleForm>
+    </Create>
+)
