@@ -18,8 +18,8 @@ export const WebServiceList = () => {
                 <TextField source="id" />
                 <TextField source="host" />
                 <TextField source="port" />
-                <ReferenceField source="web_service_type_id" reference="web_service_types" />
-                <ReferenceField source="service_id" reference="services" />
+                <ReferenceField source="web_service_type_id" reference="superadmin/web_service_types" />
+                <ReferenceField source="service_id" reference="superadmin/services" />
             </Datagrid>
         </List>
     );
@@ -31,8 +31,8 @@ export const WebServiceEdit = () => (
             <TextInput source="id" disabled />
             <TextInput source="host" />
             <TextInput source="port" />
-            <ReferenceInput source="web_service_type_id" reference="web_service_types" />
-            <ReferenceInput source="service_id" reference="services" />
+            <ReferenceInput source="web_service_type_id" reference="superadmin/web_service_types" />
+            <ReferenceInput source="service_id" reference="superadmin/services" />
         </SimpleForm>
     </Edit>
 );
@@ -42,8 +42,8 @@ export const WebServiceCreate = () => (
         <SimpleForm>
             <TextInput source="host" />
             <TextInput source="port" />
-            <ReferenceInput source="web_service_type_id" reference="web_service_types" />
-            <ReferenceInput source="service_id" reference="services" />
+            <ReferenceInput source="web_service_type_id" reference="superadmin/web_service_types" />
+            <ReferenceInput source="service_id" reference="superadmin/services" />
         </SimpleForm>
     </Create>
 )

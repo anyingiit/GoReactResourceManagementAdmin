@@ -25,7 +25,7 @@ export const TaskQueueResultList = () => {
                 <TextField source="id" />
                 <TextField source="succeed" />
                 <NumberField source="detail" />
-                <ReferenceField label="Task Queue" source="task_queue_id" reference="task_queues" />
+                <ReferenceField label="Task Queue" source="task_queue_id" reference="superadmin/task_queues" />
             </Datagrid>
         </List >
     );
@@ -37,7 +37,7 @@ export const TaskQueueResultEdit = () => (
             <TextInput source="id" disabled />
             <TextInput source="succeed" />
             <NumberInput source="detail" />
-            <ReferenceInput label="Task Queue" source="task_queue_id" reference="task_queues" />
+            <ReferenceInput label="Task Queue" source="task_queue_id" reference="superadmin/task_queues" />
         </SimpleForm>
     </Edit>
 );
@@ -48,7 +48,7 @@ export const TaskQueueResultCreate = () => (
             <NumberInput source="sequence" />
             <TextInput source="succeed" />
             <NumberInput source="detail" />
-            <ReferenceInput label="Task Queue" source="task_queue_id" reference="task_queues" />
+            <ReferenceInput label="Task Queue" source="task_queue_id" reference="superadmin/task_queues" />
         </SimpleForm>
     </Create>
 )

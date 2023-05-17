@@ -21,7 +21,7 @@ export const ServiceList = () => {
                 <TextField source='description' />
                 <TextField source='owner_id' />
                 <TextField source='owner_type' />
-                <ReferenceField source="client_id" reference="clients" />
+                <ReferenceField source="client_id" reference="superadmin/clients" />
             </Datagrid>
         </List>
     );
@@ -35,7 +35,7 @@ export const ServiceEdit = () => (
             <TextInput source='description' />
             <TextInput source='owner_id' />
             <TextInput source='owner_type' />
-            <ReferenceInput source="client_id" reference="clients" />
+            <ReferenceInput source="client_id" reference="superadmin/clients" />
         </SimpleForm>
     </Edit>
 );
@@ -47,7 +47,7 @@ export const ServiceCreate = () => (
             <TextInput source='description' />
             <TextInput source='owner_id' />
             <TextInput source='owner_type' />
-            <ReferenceInput source="client_id" reference="clients" />
+            <ReferenceInput source="client_id" reference="superadmin/clients" />
         </SimpleForm>
     </Create>
 )

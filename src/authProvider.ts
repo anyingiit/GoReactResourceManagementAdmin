@@ -18,11 +18,21 @@ export const authProvider: AuthProvider = {
             body: formData,
         })
             .then(({ json }) => {
-                console.log(json);
                 localStorage.setItem('token', json.data.token);
-                localStorage.setItem('username', username);
 
-                return Promise.resolve();
+                return httpClient(`http://localhost:8080/v1/user/info`, {
+                    method: 'GET',
+                    headers: new Headers({
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    })
+                })
+                    .then(({ json }) => {
+                        // console.log(json)
+                        localStorage.setItem('username', json.data.username);
+                        localStorage.setItem('role', json.data.role);
+
+                        return Promise.resolve();
+                    })
             });
     },
     // called when the user clicks on the logout button

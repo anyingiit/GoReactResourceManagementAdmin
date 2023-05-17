@@ -3,7 +3,7 @@ import { fetchUtils, DataProvider } from "react-admin";
 import { stringify } from "query-string";
 import { Options } from "ra-core";
 
-const apiUrl = 'http://localhost:8080/v1/superadmin';
+const apiUrl = 'http://localhost:8080/v1';
 
 // option.headers的类型如果不是Header则无效
 const httpClient = (url: string, options: Options = {}) => {

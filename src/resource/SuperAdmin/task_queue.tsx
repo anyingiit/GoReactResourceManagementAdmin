@@ -24,9 +24,9 @@ export const TaskQueueList = () => {
             <Datagrid rowClick="edit">
                 <TextField source="id" />
                 <NumberField source="sequence" />
-                <ReferenceField label="Task" source="task_id" reference="tasks" />
-                <ReferenceField label="Client" source="client_id" reference="clients" />
-                <ReferenceField label="Service" source="service_id" reference="services" />
+                <ReferenceField label="Task" source="task_id" reference="superadmin/tasks" />
+                <ReferenceField label="Client" source="client_id" reference="superadmin/clients" />
+                <ReferenceField label="Service" source="service_id" reference="superadmin/services" />
             </Datagrid>
         </List >
     );
@@ -37,9 +37,9 @@ export const TaskQueueEdit = () => (
         <SimpleForm>
             <TextInput source="id" disabled />
             <NumberInput source="sequence" />
-            <ReferenceInput label="Task" source="task_id" reference="tasks" />
-            <ReferenceInput label="Client" source="client_id" reference="clients" />
-            <ReferenceInput label="Service" source="service_id" reference="services" />
+            <ReferenceInput label="Task" source="task_id" reference="superadmin/tasks" />
+            <ReferenceInput label="Client" source="client_id" reference="superadmin/clients" />
+            <ReferenceInput label="Service" source="service_id" reference="superadmin/services" />
         </SimpleForm>
     </Edit>
 );
@@ -48,9 +48,9 @@ export const TaskQueueCreate = () => (
     <Create>
         <SimpleForm>
             <NumberInput source="sequence" />
-            <ReferenceInput label="Task" source="task_id" reference="tasks" />
-            <ReferenceInput label="Client" source="client_id" reference="clients" />
-            <ReferenceInput label="Service" source="service_id" reference="services" />
+            <ReferenceInput label="Task" source="task_id" reference="superadmin/tasks" />
+            <ReferenceInput label="Client" source="client_id" reference="superadmin/clients" />
+            <ReferenceInput label="Service" source="service_id" reference="superadmin/services" />
         </SimpleForm>
     </Create>
 )

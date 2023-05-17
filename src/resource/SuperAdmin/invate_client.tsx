@@ -17,7 +17,7 @@ export const InvateClientList = () => {
         <List>
             <Datagrid rowClick="edit">
                 <TextField source="id" />
-                <ReferenceField source="client_id" reference="clients" />
+                <ReferenceField source="client_id" reference="superadmin/clients" />
                 <TextField source='invate_code' />
                 <DateField source="deleted_at" showTime />
             </Datagrid>
@@ -29,7 +29,7 @@ export const InvateClientEdit = () => (
     <Edit>
         <SimpleForm>
             <TextInput source="id" disabled />
-            <ReferenceInput source="client_id" reference="clients" />
+            <ReferenceInput source="client_id" reference="superadmin/clients" />
             <TextInput source='invate_code' />
         </SimpleForm>
     </Edit>
@@ -38,7 +38,7 @@ export const InvateClientEdit = () => (
 export const InvateClientCreate = () => (
     <Create>
         <SimpleForm>
-            <ReferenceInput source="client_id" reference="clients" />
+            <ReferenceInput source="client_id" reference="superadmin/clients" />
             <TextInput source='invate_code' />
         </SimpleForm>
     </Create>

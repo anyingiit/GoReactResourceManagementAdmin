@@ -16,8 +16,8 @@ export const ServiceStatusList = () => {
         <List>
             <Datagrid rowClick="edit">
                 <TextField source="id" />
-                <ReferenceField source="service_id" reference="services" />
-                <ReferenceField source="task_queue_id" reference="task_queues" />
+                <ReferenceField source="service_id" reference="superadmin/services" />
+                <ReferenceField source="task_queue_id" reference="superadmin/task_queues" />
             </Datagrid>
         </List>
     );
@@ -27,8 +27,8 @@ export const ServiceStatusEdit = () => (
     <Edit>
         <SimpleForm>
             <TextInput source="id" disabled />
-            <ReferenceInput source="service_id" reference="services" />
-            <ReferenceInput source="task_result_id" reference="task_results" />
+            <ReferenceInput source="service_id" reference="superadmin/services" />
+            <ReferenceInput source="task_result_id" reference="superadmin/task_results" />
         </SimpleForm>
     </Edit>
 );
@@ -36,8 +36,8 @@ export const ServiceStatusEdit = () => (
 export const ServiceStatusCreate = () => (
     <Create>
         <SimpleForm>
-            <ReferenceInput source="service_id" reference="services" />
-            <ReferenceInput source="task_result_id" reference="task_results" />
+            <ReferenceInput source="service_id" reference="superadmin/services" />
+            <ReferenceInput source="task_result_id" reference="superadmin/task_results" />
         </SimpleForm>
     </Create>
 )

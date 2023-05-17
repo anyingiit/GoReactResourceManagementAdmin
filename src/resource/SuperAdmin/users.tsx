@@ -32,7 +32,7 @@ export const UserList = () => {
                     <TextField source='name' />
                     <NumberField source='age' />
                     <NumberField source='must_change_password' />
-                    <ReferenceField source="role_id" reference="roles" />
+                    <ReferenceField source="role_id" reference="superadmin/roles" />
 
                     {/* <EmailField source="email" />
                     <TextField source="phone" />
@@ -54,7 +54,7 @@ export const UserEdit = () => (
             <TextInput source='name' />
             <NumberInput source='age' />
             <NumberInput source='must_change_password' />
-            <ReferenceInput source="role_id" reference="roles" />
+            <ReferenceInput source="role_id" reference="superadmin/roles" />
 
             {/* <TextInput source="body" multiline rows={5} /> */}
         </SimpleForm>
@@ -68,7 +68,7 @@ export const UserCreate = () => (
             <TextInput source='name' />
             <NumberInput source='age' />
             <NumberInput source='must_change_password' />
-            <ReferenceInput source="role_id" reference="roles" />
+            <ReferenceInput source="role_id" reference="superadmin/roles" />
 
         </SimpleForm>
     </Create>
