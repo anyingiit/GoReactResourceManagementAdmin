@@ -18,6 +18,7 @@ import { authProvider } from "./authProvider"
 import { dataProvider } from "./dataProvider"
 
 import UserIcon from '@mui/icons-material/Group'
+import { InternalServiceCreate, InternalerviceEdit, InternalerviceList } from "./resource/SuperAdmin/internal_service";
 
 
 export const SuperAdmin = () => (
@@ -46,6 +47,7 @@ export const SuperAdmin = () => (
             {/* <Resource name='service_statuses' list={ServiceStatusList} edit={ServiceStatusEdit} create={ServiceStatusCreate} /> */}
             <Resource options={{ label: 'WebServiceTypes' }} name='superadmin/web_service_types' list={WebServiceTypeList} edit={WebServiceTypeEdit} create={WebServiceTypeCreate} recordRepresentation="name" />
             <Resource options={{ label: 'WebServices' }} name='superadmin/web_services' list={WebServiceList} edit={WebServiceList} create={WebServiceCreate} recordRepresentation="host" />
+            <Resource options={{ label: 'InternalServices' }} name='superadmin/internal_services' list={InternalerviceList} edit={InternalerviceEdit} create={InternalServiceCreate} recordRepresentation="host" />
         </Admin>
 
     </>

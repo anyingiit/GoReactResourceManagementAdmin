@@ -7,7 +7,7 @@ import { User } from "./User"
 
 const App = () => (
     <>
-        {localStorage.getItem('role') === 'SuperAdmin1' &&
+        {localStorage.getItem('role') === 'SuperAdmin' &&
             <>
                 <SuperAdmin />
             </>
@@ -19,7 +19,7 @@ const App = () => (
             </>
         }
 
-        {localStorage.getItem('role') === 'SuperAdmin' &&
+        {localStorage.getItem('role') === 'User' &&
             <>
                 <User />
             </>

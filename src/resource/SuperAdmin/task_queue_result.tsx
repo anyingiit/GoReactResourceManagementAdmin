@@ -13,6 +13,7 @@ import {
     useGetOne,
     FunctionField,
     useRecordContext,
+    BooleanField,
 } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
 
@@ -25,6 +26,11 @@ export const TaskQueueResultList = () => {
                 <TextField source="id" />
                 <TextField source="succeed" />
                 <NumberField source="detail" />
+                <FunctionField label='Succeed' source='succeed' render={(record: { succeed: number }) => {
+                    return (
+                        <BooleanField source='succeed' record={{ succeed: record.succeed == 1 }} />
+                    )
+                }} />
                 <ReferenceField label="Task Queue" source="task_queue_id" reference="superadmin/task_queues" />
             </Datagrid>
         </List >
