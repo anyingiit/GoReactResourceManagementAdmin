@@ -71,7 +71,7 @@ export const WebServiceList = () => {
 
                     switch (record.web_service_protocol) {
                         case 'HTTP':
-                            renderedComponent = <UrlField source='url' record={{ url: `http://${record.host}:${record.port}` }} />;
+                            renderedComponent = <UrlField source='url' target="_blank" rel="noopener" record={{ url: `http://${record.host}:${record.port}` }} />;
                             break;
                         default:
                             renderedComponent = <Typography>暂不支持</Typography>;
