@@ -8,9 +8,6 @@ import {
     SimpleList,
     ReferenceInput,
     ReferenceField,
-    BooleanField,
-    BooleanInput,
-    FunctionField,
     NumberField,
     NumberInput,
 } from 'react-admin';

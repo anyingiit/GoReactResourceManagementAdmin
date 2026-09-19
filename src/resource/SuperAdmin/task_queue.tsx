@@ -5,16 +5,11 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
     ReferenceField,
     ReferenceInput,
     NumberField,
     NumberInput,
-    useGetOne,
-    FunctionField,
-    useRecordContext,
 } from 'react-admin';
-import { useMediaQuery, Theme } from '@mui/material';
 
 export const TaskQueueList = () => {
     // const record = useRecordContext();

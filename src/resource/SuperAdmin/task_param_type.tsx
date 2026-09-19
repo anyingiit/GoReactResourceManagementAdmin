@@ -5,11 +5,7 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
-    ReferenceField,
-    ReferenceInput,
 } from 'react-admin';
-import { useMediaQuery, Theme } from '@mui/material';
 
 export const TaskParamTypeList = () => {
     return (

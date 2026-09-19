@@ -3,7 +3,9 @@
 
 # GoReactResourceManagementAdmin
 
-Go react resource management admin has no README describing its purpose; its manifest (package.json, tsconfig.json, vite.config.ts, yarn.lock) marks it as a Node.js, TypeScript and Vite codebase, built with TypeScript.
+A React-admin single-page dashboard that authenticates against a JWT-based JSON API on port 8080 and shows a different set of CRUD screens for managing clients, tasks, task queues and web services depending on whether the signed-in user is a SuperAdmin or a plain User.
+
+**English** · [简体中文](README.zh-CN.md)
 
 [![CI](https://github.com/anyingiit/GoReactResourceManagementAdmin/actions/workflows/ci.yml/badge.svg)](https://github.com/anyingiit/GoReactResourceManagementAdmin/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/anyingiit/GoReactResourceManagementAdmin)](LICENSE)
@@ -24,7 +26,9 @@ Go react resource management admin has no README describing its purpose; its man
 
 ## About The Project
 
-Go react resource management admin has no README describing its purpose; its manifest (package.json, tsconfig.json, vite.config.ts, yarn.lock) marks it as a Node.js, TypeScript and Vite codebase, built with TypeScript.
+GoReactResourceManagementAdmin is a [react-admin](https://marmelab.com/react-admin/) single-page app built with Vite and TypeScript. Which resource screens it renders is decided at runtime, not at build time: `src/App.tsx` reads the `role` value that `src/authProvider.ts` writes to `localStorage` after login, and mounts either the `SuperAdmin` app or the `User` app. `src/SuperAdmin.tsx` registers the full resource set -- roles, users, clients, invite codes, client sessions, tasks and task queues, services, web service types, web services and internal services -- while `src/User.tsx` registers only a read-only view of the signed-in user's own web services and their results.
+
+Every one of those screens reads and writes through `src/dataProvider.ts`, which calls a JSON API at `http://localhost:8080/v1` and attaches the bearer token that `src/authProvider.ts` obtained from `POST /v1/public/token`. Neither file is configurable through an environment variable; the origin is hardcoded, which is why a working backend on that port is part of running this project at all.
 
 See the [open issues](https://github.com/anyingiit/GoReactResourceManagementAdmin/issues) for planned features and known issues.
 
@@ -32,19 +36,33 @@ See the [open issues](https://github.com/anyingiit/GoReactResourceManagementAdmi
 
 ### Prerequisites
 
-- Git
+- Node.js, and Yarn -- the repository commits `yarn.lock`, not a `package-lock.json`
+- The toolchain pinned in `package.json`: Vite 4, TypeScript 5, React 18 and react-admin 4
+- A running instance of the backend JSON API this admin panel is a client for, reachable at `http://localhost:8080/v1` -- `src/authProvider.ts` and `src/dataProvider.ts` both hardcode that origin, so no screen shows real data without it
 
 ### Installation
 
 ```sh
 git clone https://github.com/anyingiit/GoReactResourceManagementAdmin.git
 cd GoReactResourceManagementAdmin
+yarn install
 ```
 
 ## Usage
 
+Start the Vite development server:
+
 ```sh
-GoReactResourceManagementAdmin --help
+yarn dev
+```
+
+Vite prints a local URL; open it and sign in with an account the backend API recognizes. Which resource screens you land on -- the full SuperAdmin set or the single-resource User view -- depends on the `role` the backend returns for that account, not on anything chosen in this app.
+
+To produce a static production build instead, and preview it locally:
+
+```sh
+yarn build
+yarn preview
 ```
 
 ## Contributing

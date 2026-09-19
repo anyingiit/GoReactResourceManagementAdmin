@@ -5,10 +5,8 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
     DateField,
 } from 'react-admin';
-import { useMediaQuery, Theme } from '@mui/material';
 
 export const RoleList = () => {
     return (
