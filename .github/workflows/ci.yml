@@ -14,15 +14,14 @@
 #     that the build actually produced a loadable dist/index.html and a
 #     non-empty JS bundle under dist/assets.
 #
-# Known, pre-existing: at the time of this repair, both `yarn lint` and
-# `yarn build` fail against this repository's own source -- tsconfig.json
+# Fixed, pre-existing: at the time of this repair, both `yarn lint` and
+# `yarn build` failed against this repository's own source -- tsconfig.json
 # sets noUnusedLocals/noUnusedParameters, and several files under
-# src/resource/**/*.tsx import names (SimpleList, ReferenceField,
-# useMediaQuery, Theme, and others) they never use, which both tsc and
-# eslint's --max-warnings 0 correctly reject. That is a defect in the app's
-# own code, not something this CI repair introduced or silently works
-# around; the checks below are left honest rather than loosened to force a
-# green run.
+# src/**/*.tsx(x) imported names (SimpleList, ReferenceField, useMediaQuery,
+# Theme, and others) they never used, which both tsc and eslint's
+# --max-warnings 0 correctly rejected. Those unused imports were removed
+# from the app's own source so both checks pass honestly, without loosening
+# either check.
 name: CI
 
 on:

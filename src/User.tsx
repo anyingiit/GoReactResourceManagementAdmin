@@ -4,7 +4,6 @@ import { MyLayout } from "./MyLayout"
 import { authProvider } from "./authProvider"
 import { dataProvider } from "./dataProvider"
 import { WebServiceList, WebServiceShow } from "./resource/User/web_service";
-import { WebServiceResultList } from "./resource/User/web_service_result";
 
 
 

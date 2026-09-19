@@ -10,15 +10,12 @@ import {
     SimpleShowLayout,
     TextField,
     UrlField,
-    UseGetListHookValue,
     useGetList,
     useRecordContext,
 } from 'react-admin';
-import { Stack, Typography, Box } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
-import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import ClearIcon from '@mui/icons-material/Clear';
-import { render } from 'react-dom';
 
 type TestResult = {
     id: Identifier;

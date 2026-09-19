@@ -1,6 +1,5 @@
 // in src/authProvider.ts
 import { fetchUtils, AuthProvider } from "react-admin";
-import { stringify } from "query-string";
 const httpClient = fetchUtils.fetchJson;
 
 // TypeScript users must reference the type: `AuthProvider`

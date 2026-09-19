@@ -5,12 +5,9 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
     ReferenceField,
     ReferenceInput,
-    FunctionField,
 } from 'react-admin';
-import { useMediaQuery, Theme } from '@mui/material';
 
 export const ServiceList = () => {
     return (

@@ -5,9 +5,7 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
 } from 'react-admin';
-import { useMediaQuery, Theme } from '@mui/material';
 
 export const ClientList = () => {
     return (

@@ -5,7 +5,6 @@ import {
     SimpleForm,
     TextInput,
     Create,
-    SimpleList,
     DateField,
 } from 'react-admin';
 
